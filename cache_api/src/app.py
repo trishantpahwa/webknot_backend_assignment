@@ -1,6 +1,8 @@
 from setup import setup
 '''
-    TODO: use dotenv for quicker and deployment.
+    TODO: 
+    1. use dotenv for quicker and deployment.
+    2. unittests
 '''
 setup()
 from functools import wraps
@@ -25,7 +27,7 @@ path_hit_count = {}
 
 def path_hit_counter():
     '''
-        summary: Middleware to count url hits [Django App 4.]
+        summary: Middleware to count url hits
         description: Counts url hits and logs them in a dictionary | `path_hit_count`
         parameters: 
          - `request.path`: Flask.request.path
