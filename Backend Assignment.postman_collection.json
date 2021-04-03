@@ -1,0 +1,525 @@
+{
+	"info": {
+		"_postman_id": "baa48f15-ef4c-42b2-91d2-ddfabbccad11",
+		"name": "Backend Assignment",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "backend_api",
+			"item": [
+				{
+					"name": "statistics",
+					"item": [
+						{
+							"name": "statistics without parameters",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:5000/statistics",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5000",
+									"path": [
+										"statistics"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "statistics ascending",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:5000/statistics?sortorder=ASC",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5000",
+									"path": [
+										"statistics"
+									],
+									"query": [
+										{
+											"key": "sortorder",
+											"value": "ASC"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "statistics descending",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:5000/statistics?sortorder=DESC",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5000",
+									"path": [
+										"statistics"
+									],
+									"query": [
+										{
+											"key": "sortorder",
+											"value": "DESC"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "statistics fetchcount",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:5000/statistics?fetchcount=3",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5000",
+									"path": [
+										"statistics"
+									],
+									"query": [
+										{
+											"key": "fetchcount",
+											"value": "3"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "statistics ascending fetchcount",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:5000/statistics?sortorder=ASC&fetchcount=3",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5000",
+									"path": [
+										"statistics"
+									],
+									"query": [
+										{
+											"key": "sortorder",
+											"value": "ASC"
+										},
+										{
+											"key": "fetchcount",
+											"value": "3"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "statistics descending fetchcount",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:5000/statistics?sortorder=DESC&fetchcount=3",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5000",
+									"path": [
+										"statistics"
+									],
+									"query": [
+										{
+											"key": "sortorder",
+											"value": "DESC"
+										},
+										{
+											"key": "fetchcount",
+											"value": "3"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "statistics invalid sort",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:5000/statistics?sortorder=DES",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5000",
+									"path": [
+										"statistics"
+									],
+									"query": [
+										{
+											"key": "sortorder",
+											"value": "DES"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "statistics invalid fetchcount",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:5000/statistics?fetchcount=a9a",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5000",
+									"path": [
+										"statistics"
+									],
+									"query": [
+										{
+											"key": "fetchcount",
+											"value": "a9a"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "leaderboard",
+					"item": [
+						{
+							"name": "leaderboard without parameters",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:5000/leaderboard",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5000",
+									"path": [
+										"leaderboard"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "leaderboard descending",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:5000/leaderboard?sortorder=DESC",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5000",
+									"path": [
+										"leaderboard"
+									],
+									"query": [
+										{
+											"key": "sortorder",
+											"value": "DESC"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "leaderboard ascending",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:5000/leaderboard?sortorder=ASC",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5000",
+									"path": [
+										"leaderboard"
+									],
+									"query": [
+										{
+											"key": "sortorder",
+											"value": "ASC"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "leaderboard fetchcount",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:5000/leaderboard?fetchcount=3",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5000",
+									"path": [
+										"leaderboard"
+									],
+									"query": [
+										{
+											"key": "fetchcount",
+											"value": "3"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "leaderboard descending fetchcount",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:5000/leaderboard?sortorder=DESC&fetchcount=1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5000",
+									"path": [
+										"leaderboard"
+									],
+									"query": [
+										{
+											"key": "sortorder",
+											"value": "DESC"
+										},
+										{
+											"key": "fetchcount",
+											"value": "1"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "leaderboard ascending fetchcount",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:5000/leaderboard?sortorder=ASC&fetchcount=2",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5000",
+									"path": [
+										"leaderboard"
+									],
+									"query": [
+										{
+											"key": "sortorder",
+											"value": "ASC"
+										},
+										{
+											"key": "fetchcount",
+											"value": "2"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "leaderboard invalid sort",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:5000/leaderboard?sortorder=DES",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5000",
+									"path": [
+										"leaderboard"
+									],
+									"query": [
+										{
+											"key": "sortorder",
+											"value": "DES"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "leaderboard invalid fetchcount",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:5000/leaderboard?fetchcount=al",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5000",
+									"path": [
+										"leaderboard"
+									],
+									"query": [
+										{
+											"key": "fetchcount",
+											"value": "al"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "ifsc",
+					"item": [
+						{
+							"name": "valid ifsc_code",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "localhost:5000/ifsc-search?ifsc_code=HDFC0001568",
+									"host": [
+										"localhost"
+									],
+									"port": "5000",
+									"path": [
+										"ifsc-search"
+									],
+									"query": [
+										{
+											"key": "ifsc_code",
+											"value": "HDFC0001568"
+										}
+									]
+								},
+								"description": "Valid IFSC Code"
+							},
+							"response": []
+						},
+						{
+							"name": "ifsc_code missing",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "localhost:5000/ifsc-search",
+									"host": [
+										"localhost"
+									],
+									"port": "5000",
+									"path": [
+										"ifsc-search"
+									]
+								},
+								"description": "Without ifsc code"
+							},
+							"response": []
+						},
+						{
+							"name": "Invalid ifsc_code",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "localhost:5000/ifsc-search?ifsc_code=1010",
+									"host": [
+										"localhost"
+									],
+									"port": "5000",
+									"path": [
+										"ifsc-search"
+									],
+									"query": [
+										{
+											"key": "ifsc_code",
+											"value": "1010"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "null ifsc_code",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "localhost:5000/ifsc-search?ifsc_code=",
+									"host": [
+										"localhost"
+									],
+									"port": "5000",
+									"path": [
+										"ifsc-search"
+									],
+									"query": [
+										{
+											"key": "ifsc_code",
+											"value": ""
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		}
+	]
+}
