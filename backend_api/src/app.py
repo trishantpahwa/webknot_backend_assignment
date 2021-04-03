@@ -117,16 +117,10 @@ def bank_leaderboard():
                 "Success": true,
                 "data": [
                     {
-                        "bank": "XXXXXXXXXXXXXX",
-                        "count": {
-                            "Count - BANK": 18500
-                        }
+                        "XXXXXXXXXXXXXX": 18500
                     },
                     {
-                        "bank": "PUNJAB NATIONAL BANK",
-                        "count": {
-                            "Count - BANK": 10037
-                        }
+                        "XXXXXXXXXXXXXX": 10037
                     },
                     .
                     .
@@ -134,10 +128,7 @@ def bank_leaderboard():
                     .
                     .
                     {
-                        "bank": "AXIS BANK",
-                        "count": {
-                            "Count - BANK": 5242
-                        }
+                        "XXXXXXXXXXXXXX": 5242
                     }
                 ]
             })
