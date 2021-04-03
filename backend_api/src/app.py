@@ -32,7 +32,7 @@ def ifsc_search():
                 statistics_data.search(ifsc_code)
                 return make_response(jsonify({'Success': True, 'data': branch_data}))
             else:
-                return make_response(jsonify({'Success': False}), 404)
+                return make_response(jsonify({'Success': False, 'data': None}), 404)
         else:
             return make_response(jsonify({'Success': False, 'error': 'Validation Error', 'message': 'ifsc_code validation error'}), 422)
     except Exception as e:
