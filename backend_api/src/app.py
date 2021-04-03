@@ -1,5 +1,9 @@
 from setup import setup
-
+'''
+    TODO: 
+    1. use dotenv for quicker and deployment.
+    2. unittests
+'''
 setup()
 
 
@@ -11,8 +15,14 @@ from models.leaderboard import leaderboard
 from models.statistics import statistics
 
 '''
-Loads the data from the excel to the primary memory
-[|==== Loading =========>.......|]
+    Loads the data from the excel to the primary memory
+
+    [|==== Loading =========>.......|]
+
+    data_structures
+     - ifsc_data: dict(<str>, <ifsc object>)
+     - leaderboard_data: dict(<str>, <int>)
+     - statistics_data
 '''
 
 ifsc_data = load_ifsc_data()  # Loads IFSC data
@@ -158,7 +168,6 @@ def bank_leaderboard():
     try:
         sortorder = request.args.get('sortorder')
         fetchcount = request.args.get('fetchcount')
-        __statistics_data = None
 
         if sortorder != 'ASC' and sortorder != 'DESC' and sortorder != None:
             return make_response(jsonify({'Success': False, 'error': 'Validation Error', 'message': 'sortorder validation error'}), 422)
@@ -248,9 +257,18 @@ def statistics_route():
     '''
     try:
         sortorder = request.args.get('sortorder')
-        fetchcount = int(request.args.get('fetchcount')
-                         ) if request.args.get('fetchcount') else None
-        __statistics_data = None
+        fetchcount = request.args.get('fetchcount')
+
+        if sortorder != 'ASC' and sortorder != 'DESC' and sortorder != None:
+            return make_response(jsonify({'Success': False, 'error': 'Validation Error', 'message': 'sortorder validation error'}), 422)
+        if fetchcount is not None:
+            try:
+                fetchcount = int(fetchcount)
+                if fetchcount < 1:
+                    raise Exception()
+            except Exception:
+                return make_response(jsonify({'Success': False, 'error': 'Validation Error', 'message': 'fetchcount validation error'}), 422)
+
         if sortorder is not None:
             if fetchcount is not None:
                 __statistics_data = statistics_data.get_data(
