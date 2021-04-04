@@ -1,15 +1,16 @@
-from setup import setup
 '''
     TODO: 
-    1. use dotenv for quicker and deployment.
+    1. use dotenv for quicker and deployment. => Done
     2. unittests
 '''
-setup()
+from dotenv import load_dotenv
+load_dotenv()
 
 
 from flask import Flask, request, make_response, jsonify
 import json
 from sys import exc_info
+from os import environ
 from models.ifsc import ifsc, load_ifsc_data, search_ifsc
 from models.leaderboard import leaderboard
 from models.statistics import statistics
@@ -87,7 +88,7 @@ def ifsc_search():
     '''
     try:
         ifsc_code = request.args.get('ifsc_code')
-        if ifsc_code is not None and ifsc_code != '':
+        if ifsc_code is not None and len(ifsc_code) == 11:
             branch_data = search_ifsc(ifsc_data, ifsc_code)
             if branch_data is not None or ifsc_code == '':
                 statistics_data.search(ifsc_code)
@@ -249,7 +250,7 @@ def statistics_route():
     try:
         sortorder = request.args.get('sortorder')
         fetchcount = request.args.get('fetchcount')
-
+        print(fetchcount)
         if sortorder != 'ASC' and sortorder != 'DESC' and sortorder != None:
             return make_response(jsonify({'Success': False, 'error': 'Validation Error', 'message': 'sortorder validation error'}), 422)
         if fetchcount is not None:
@@ -275,3 +276,7 @@ def statistics_route():
     except Exception as e:
         print("Oops!", e, "occurred.")
         return make_response(jsonify({'Success': False, 'error': 'Internal Server Error'}), 500)
+
+
+if __name__ == '__main__':
+    app.run(host=environ['HOST'], port=environ['PORT'], debug=environ['DEV_MODE'])
