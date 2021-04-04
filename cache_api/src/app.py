@@ -10,6 +10,15 @@ from flask import Flask, request, make_response, jsonify
 import json
 import requests
 from os import environ
+from sys import exit
+
+try:
+    for env_check in ['BACKEND_API_URL', 'HOST', 'PORT', 'DEV_MODE']:
+        if env_check not in environ:
+            raise Exception('Setup env variables first: ' + env_check)
+except Exception as e:
+    print(e)
+    exit(1)
 
 
 '''

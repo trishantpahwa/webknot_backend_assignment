@@ -9,11 +9,20 @@ load_dotenv()
 
 from flask import Flask, request, make_response, jsonify
 import json
-from sys import exc_info
+from sys import exit
 from os import environ
 from models.ifsc import ifsc, load_ifsc_data, search_ifsc
 from models.leaderboard import leaderboard
 from models.statistics import statistics
+
+try:
+    for env_check in ['DATASTORE', 'HOST', 'PORT', 'DEV_MODE']:
+        if env_check not in environ:
+            raise Exception('Setup env variables first: ' + env_check)
+except Exception as e:
+    print(e)
+    exit(1)
+
 
 '''
     Loads the data from the excel to the primary memory
