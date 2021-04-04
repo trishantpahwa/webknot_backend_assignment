@@ -20,3 +20,17 @@ python app.py
 To execute the unittests, navigate to the directory containing the `tests.py` file for the specific api to test, and use the following command:
 `python -m unittest tests.py`
 
+
+The development environment being Windows produced a venv corresponding to Windows only.
+If the project is to be served on a Limux environment, it will not work unless the environment is properly setup including the required dependencies.
+
+The minimum requirements include:
+1. python3.6
+2. pip3 and the following modules:
+    - Flask
+    - requests
+    - pandas
+    - xlrd
+    - openpyxl
+    - unittest
+
