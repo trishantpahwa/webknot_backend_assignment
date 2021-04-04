@@ -122,7 +122,7 @@ def ifsc_search():
                     ifsc_hit_count[ifsc_code] = 1  # Would only be called once per ifsc as they'll be cached.
                     return make_response(jsonify(data))
                 elif response.status_code == 404:
-                    return make_response(jsonify(json.loads(response.text)))
+                    return make_response(jsonify(json.loads(response.text)), 404)
         else:
             if ifsc_code is None:
                 return make_response(jsonify({'Success': False, 'error': 'Validation Error', 'message': 'ifsc_code is required'}), 422)
