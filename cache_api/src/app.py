@@ -1,10 +1,10 @@
-from setup import setup
 '''
     TODO: 
-    1. use dotenv for quicker and deployment.
+    1. use dotenv for quicker and deployment. => Done
     2. unittests
 '''
-setup()
+from dotenv import load_dotenv
+load_dotenv()
 from functools import wraps
 from flask import Flask, request, make_response, jsonify
 import json
@@ -23,6 +23,9 @@ from os import environ
 cached_ifsc = {}
 ifsc_hit_count = {}
 path_hit_count = {}
+
+
+app = Flask(__name__)
 
 
 def path_hit_counter():
@@ -44,9 +47,6 @@ def path_hit_counter():
             return result
         return __path_hit_counter
     return _path_hit_counter
-
-
-app = Flask(__name__)
 
 
 @app.route('/ifsc-search', methods=['GET'])
@@ -109,7 +109,7 @@ def ifsc_search():
     '''
     try:
         ifsc_code = request.args.get('ifsc_code')
-        if ifsc_code is not None and len(ifsc_code) != 11 and str(ifsc_code[:4]).isalpha() and str(ifsc_code[4:]).isdigit():
+        if ifsc_code is not None and len(ifsc_code) == 11 and str(ifsc_code[:4]).isalpha() and str(ifsc_code[4:]).isdigit():
             if ifsc_code in cached_ifsc:
                 ifsc_hit_count[ifsc_code] += 1  # Would be present, because can only be cached if searched once.
                 return make_response(jsonify({'Success': True, 'data': cached_ifsc[ifsc_code]}))
@@ -131,3 +131,6 @@ def ifsc_search():
     except Exception as e:
         print("Oops!", e, "occurred.")
         return make_response(jsonify({'Success': False, 'error': 'Internal Server Error'}), 500)
+
+if __name__ == '__main__':
+    app.run(host=environ['HOST'], port=environ['PORT'], debug=environ['DEV_MODE'])
