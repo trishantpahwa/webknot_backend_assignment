@@ -1,8 +1,3 @@
-'''
-    TODO: 
-    1. use dotenv for quicker and deployment. => Done
-    2. unittests
-'''
 from dotenv import load_dotenv
 load_dotenv()
 
