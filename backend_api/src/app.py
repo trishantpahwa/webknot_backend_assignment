@@ -275,7 +275,10 @@ def statistics_route():
                 __statistics_data = statistics_data.get_data(limit=fetchcount)
             else:
                 __statistics_data = statistics_data.get_data()
-        return make_response(jsonify({'Success': True, 'data': __statistics_data}))
+        if len(__statistics_data) == 0:
+            return make_response(jsonify({'Success': False, 'data': __statistics_data}))
+        else:
+            return make_response(jsonify({'Success': True, 'data': __statistics_data}))
     except Exception as e:
         print("Oops!", e, "occurred.")
         return make_response(jsonify({'Success': False, 'error': 'Internal Server Error'}), 500)
