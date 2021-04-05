@@ -254,7 +254,6 @@ def statistics_route():
     try:
         sortorder = request.args.get('sortorder')
         fetchcount = request.args.get('fetchcount')
-        print(fetchcount)
         if sortorder != 'ASC' and sortorder != 'DESC' and sortorder != None:
             return make_response(jsonify({'Success': False, 'error': 'Validation Error', 'message': 'sortorder validation error'}), 422)
         if fetchcount is not None:
